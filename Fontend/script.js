@@ -14,7 +14,7 @@ const CONFIG = {
     // TODO: replace 'your-api-domain.com' with your deployed backend's real domain.
     API_URL: (['localhost', '127.0.0.1'].includes(window.location.hostname))
         ? 'http://localhost:5000/api'
-        : 'https://your-api-domain.com/api',
+        : 'https://portfolio-backend-l17o.onrender.com/api',
     ANIMATIONS: {
         SCROLL_OFFSET: 80,
         REVEAL_DELAY: 90,
