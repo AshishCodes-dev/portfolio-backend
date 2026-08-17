@@ -14,7 +14,7 @@ const CONFIG = {
     // TODO: replace 'your-api-domain.com' with your deployed backend's real domain.
     API_URL: (['localhost', '127.0.0.1'].includes(window.location.hostname))
         ? 'http://localhost:5000/api'
-        : 'https://portfolio-backend-l17o.onrender.com/api',
+        : 'https://your-api-domain.com/api',
     ANIMATIONS: {
         SCROLL_OFFSET: 80,
         REVEAL_DELAY: 90,
@@ -525,18 +525,11 @@ function displayProjects(projects) {
     if (!container) return;
 
     if (projects.length === 0) {
-        container.innerHTML = `
-    <div class="project-card project-placeholder reveal">
-      <div class="placeholder-icon"><i class="fa fa-code"></i></div>
-      <h3 class="project-title">New Project</h3>
-      <p class="project-desc">Coming soon — currently in the works.</p>
-    </div>
-  `;
+        container.innerHTML = '<p style="text-align: center; color: var(--grey); grid-column: 1 / -1;">No projects yet. Coming soon...</p>';
         return;
     }
-}
 
-const projectsHTML = projects.map(project => `
+    const projectsHTML = projects.map(project => `
     <div class="project-card reveal">
       <div class="project-header">
         <h3 class="project-title">${escapeHtml(project.title)}</h3>
@@ -559,25 +552,25 @@ const projectsHTML = projects.map(project => `
     </div>
   `).join('');
 
-container.innerHTML = projectsHTML;
+    container.innerHTML = projectsHTML;
 
-// Re-initialize reveal for dynamically added elements
-const newItems = container.querySelectorAll('.reveal:not(.visible)');
-if (newItems.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * CONFIG.ANIMATIONS.REVEAL_DELAY);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    // Re-initialize reveal for dynamically added elements
+    const newItems = container.querySelectorAll('.reveal:not(.visible)');
+    if (newItems.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * CONFIG.ANIMATIONS.REVEAL_DELAY);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    newItems.forEach(el => observer.observe(el));
+        newItems.forEach(el => observer.observe(el));
+    }
 }
-
 
 async function fetchProjects() {
     try {
