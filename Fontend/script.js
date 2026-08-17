@@ -526,7 +526,7 @@ function displayProjects(projects) {
 
     if (projects.length === 0) {
         container.innerHTML = `
-    <div class="project-card project-placeholder reveal">
+    <div class="project-card project-placeholder">
       <div class="placeholder-icon"><i class="fa fa-code"></i></div>
       <h3 class="project-title">New Project</h3>
       <p class="project-desc">Coming soon — currently in the works.</p>
