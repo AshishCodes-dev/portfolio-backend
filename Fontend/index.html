@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish // Full Stack Web Developer | MERN & Tailwind</title>
+    <meta name="description" content="Portfolio of Ashish, a full stack web developer specializing in the MERN stack (MongoDB, Express, React, Node.js) and Tailwind CSS, with working knowledge of Python, C/C++, SQL and Docker.">
+    <meta name="author" content="Ashish">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ashish // Full Stack Web Developer">
+    <meta property="og:description" content="Full stack web developer specializing in the MERN stack and Tailwind CSS, with working knowledge of Python, C/C++, SQL and Docker.">
+    <meta property="og:site_name" content="Ashish // Developer">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ashish // Full Stack Web Developer">
+    <meta name="twitter:description" content="Full stack web developer specializing in the MERN stack and Tailwind CSS, with working knowledge of Python, C/C++, SQL and Docker.">
+
+    <!-- TODO: replace with a real favicon file (e.g. /favicon.ico or /favicon.png) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2302021b'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='%2300d4ff' font-family='monospace'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursor-trail"></div>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="noise-overlay"></div>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <span class="bracket">&lt;</span><span class="logo-name">Ashish</span><span
+                    class="bracket">/&gt;</span><span class="blink-cursor">_</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home"><span class="nav-num">01.</span>home</a></li>
+                <li><a href="#about"><span class="nav-num">02.</span>about</a></li>
+                <li><a href="#skills"><span class="nav-num">03.</span>skills</a></li>
+                <li><a href="#projects"><span class="nav-num">04.</span>projects</a></li>
+                <li><a href="#contact"><span class="nav-num">05.</span>contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <!-- hero-left shown FIRST on mobile (order:1) -->
+            <div class="hero-left">
+                <div class="terminal-badge">
+                    <span class="badge-dot"></span>STATUS: AVAILABLE FOR HIRE
+                </div>
+                <p class="hero-greeting">// hello, world</p>
+                <h1 class="hero-name">
+                    I'm <span class="name-highlight glitch" data-text="Ashish">Ashish</span>
+                </h1>
+                <div class="hero-typed-wrap">
+                    <span class="prompt-arrow">&gt;&nbsp;</span>
+                    <span id="typed-element"></span>
+                </div>
+                <p class="hero-tagline">
+                    Turning <span class="highlight-word">ideas</span> into
+                    <span class="highlight-word">digital reality</span> — one commit at a time.
+                </p>
+                <div class="hero-buttons">
+                    <a href="Ashish_Resume.pdf" download class="btn-primary">
+                        <i class="fa fa-download"></i> Download CV
+                    </a>
+                    <!-- TODO: replace with your real GitHub URL -->
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn-outline">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </div>
+                <!-- TODO: replace all "#" hrefs below with your real profile URLs -->
+                <div class="social-row">
+                    <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- hero-right shown SECOND on mobile (order:2) -->
+            <div class="hero-right">
+                <div class="hero-img-glow"></div>
+                <div class="code-window">
+                    <div class="window-bar">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="window-title">ashish.js</span>
+                        <span class="window-lang">JavaScript</span>
+                    </div>
+                    <div class="code-body">
+                        <div class="code-line"><span class="ln">01</span><span class="kw">const</span> <span
+                                class="fn">developer</span> <span class="op">=</span> {</div>
+                        <div class="code-line"><span class="ln">02</span>&nbsp;&nbsp;<span class="prop">name</span><span
+                                class="op">:</span> <span class="str">"Ashish"</span><span class="op">,</span></div>
+                        <div class="code-line"><span class="ln">03</span>&nbsp;&nbsp;<span class="prop">role</span><span
+                                class="op">:</span> <span class="str">"Full Stack Dev"</span><span class="op">,</span>
+                        </div>
+                        <div class="code-line"><span class="ln">04</span>&nbsp;&nbsp;<span
+                                class="prop">location</span><span class="op">:</span> <span class="str">"India
+                                🇮🇳"</span><span class="op">,</span></div>
+                        <div class="code-line"><span class="ln">05</span>&nbsp;&nbsp;<span
+                                class="prop">stack</span><span class="op">:</span> [</div>
+                        <div class="code-line"><span class="ln">06</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                class="str">"React"</span><span class="op">,</span> <span
+                                class="str">"Node.js"</span><span class="op">,</span></div>
+                        <div class="code-line"><span class="ln">07</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                class="str">"MongoDB"</span><span class="op">,</span> <span class="str">"Express"</span>
+                        </div>
+                        <div class="code-line"><span class="ln">08</span>&nbsp;&nbsp;]<span class="op">,</span></div>
+                        <div class="code-line"><span class="ln">09</span>&nbsp;&nbsp;<span
+                                class="prop">available</span><span class="op">:</span> <span class="kw">true</span><span
+                                class="op">,</span></div>
+                        <div class="code-line"><span class="ln">10</span>&nbsp;&nbsp;<span
+                                class="prop">coffee</span><span class="op">:</span> <span class="str">"always ☕"</span>
+                        </div>
+                        <div class="code-line"><span class="ln">11</span>}<span class="op">;</span></div>
+                        <div class="code-line"><span class="ln">12</span></div>
+                        <div class="code-line"><span class="ln">13</span><span class="co">// Ready to build something
+                                epic?</span></div>
+                        <div class="code-line"><span class="ln">14</span><span class="fn">console</span><span
+                                class="op">.</span><span class="fn">log</span>(<span class="str">"Let's
+                                go!"</span>)<span class="op">;</span> <span class="typed-cursor">|</span></div>
+                    </div>
+                </div>
+                <div class="float-badge badge-1"><i class="fa-brands fa-react"></i> React</div>
+                <div class="float-badge badge-2"><i class="fa-brands fa-node-js"></i> Node.js</div>
+                <div class="float-badge badge-3">⚡ Open to work</div>
+            </div>
+        </section>
+
+        <div class="section-divider"><span>/* ABOUT */</span></div>
+
+        <!-- ABOUT -->
+        <section class="about" id="about">
+            <div class="section-header reveal">
+                <span class="section-tag">who am i</span>
+                <h2 class="section-title">About <span>Me</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>I'm Ashish, a full stack web developer focused on building fast, responsive, and user-friendly
+                        applications — from pixel-accurate frontends to reliable backend APIs.</p>
+                    <p>I work across the MERN stack (MongoDB, Express, React, Node.js), styling with Tailwind CSS, and I'm
+                        comfortable with Python and C/C++ for problem-solving and backend logic.</p>
+                    <p>I care about clean code and real functionality over shortcuts — every project I ship is something
+                        I'd be comfortable handing off to a team or a client.</p>
+                    <a href="Ashish_Resume.pdf" download class="btn-primary"
+                        style="margin-top:24px;display:inline-flex;">
+                        <i class="fa fa-file-code"></i> View Resume
+                    </a>
+                </div>
+                <div class="about-stats reveal">
+                    <div class="stat-box">
+                        <span class="stat-num" data-target="3">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">YEARS CODING</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">PROJECTS BUILT</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" data-target="8">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">TECHNOLOGIES</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">∞</span>
+                        <span class="stat-label">CUPS OF COFFEE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><span>/* SKILLS */</span></div>
+
+        <!-- SKILLS -->
+        <section class="skills" id="skills">
+            <div class="section-header reveal">
+                <span class="section-tag">what i work with</span>
+                <h2 class="section-title">My <span>Skills</span></h2>
+            </div>
+
+            <!-- BIG SKILLS CONTAINER -->
+            <div class="skills-big-container reveal">
+                <div class="skills-container-header">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="container-title">skills.config.js</span>
+                    <span class="container-lines">16 skills loaded</span>
+                </div>
+                <div class="skills-groups">
+
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Languages & Markup</h3>
+                        <div class="skill-chips">
+                            <span class="skill-chip"><span class="skill-icon">🌐</span>HTML5</span>
+                            <span class="skill-chip"><span class="skill-icon">🎨</span>CSS3</span>
+                            <span class="skill-chip"><span class="skill-icon">⚡</span>JavaScript</span>
+                            <span class="skill-chip"><span class="skill-icon">🐍</span>Python</span>
+                            <span class="skill-chip"><span class="skill-icon">🔵</span>C</span>
+                            <span class="skill-chip"><span class="skill-icon">🔷</span>C++</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Frontend</h3>
+                        <div class="skill-chips">
+                            <span class="skill-chip"><span class="skill-icon">⚛️</span>React.js</span>
+                            <span class="skill-chip"><span class="skill-icon">▲</span>Next.js</span>
+                            <span class="skill-chip"><span class="skill-icon">💨</span>Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Backend</h3>
+                        <div class="skill-chips">
+                            <span class="skill-chip"><span class="skill-icon">🟢</span>Node.js</span>
+                            <span class="skill-chip"><span class="skill-icon">🚂</span>Express.js</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Database</h3>
+                        <div class="skill-chips">
+                            <span class="skill-chip"><span class="skill-icon">🍃</span>MongoDB</span>
+                            <span class="skill-chip"><span class="skill-icon">🐘</span>PostgreSQL</span>
+                            <span class="skill-chip"><span class="skill-icon">🗄️</span>SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Tools & DevOps</h3>
+                        <div class="skill-chips">
+                            <span class="skill-chip"><span class="skill-icon">🐙</span>Git & GitHub</span>
+                            <span class="skill-chip"><span class="skill-icon">🐳</span>Docker</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><span>/* PROJECTS */</span></div>
+
+        <!-- PROJECTS -->
+        <!-- PROJECTS -->
+        <section class="projects" id="projects">
+            <div class="section-header reveal">
+                <span class="section-tag">my work</span>
+                <h2 class="section-title">Featured <span>Projects</span></h2>
+            </div>
+
+            <div class="projects-grid" id="projectsContainer">
+                <!-- Projects यहाँ dynamically load होंगे -->
+                <div class="loading-message">Loading projects...</div>
+            </div>
+        </section>
+
+        <div class="section-divider"><span>/* CONTACT */</span></div>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
+            <div class="section-header reveal">
+                <span class="section-tag">get in touch</span>
+                <h2 class="section-title">Contact <span>Me</span></h2>
+            </div>
+            <div class="contact-wrap">
+                <div class="contact-info reveal">
+                    <h3>Let's build something <span>epic</span> together</h3>
+                    <p>Have a project in mind? Drop me a message and let's talk code.</p>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+                        <div><span class="detail-label">EMAIL</span><a class="detail-value" href="mailto:jamesashish332@gmail.com">jamesashish332@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fa fa-phone"></i></div>
+                        <div><span class="detail-label">PHONE</span><a class="detail-value" href="tel:+918875566521">+91 8875566521</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fa fa-location-dot"></i></div>
+                        <div><span class="detail-label">LOCATION</span><span class="detail-value">India 🇮🇳</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form reveal" id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="cf-name">name</label>
+                            <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your Name" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cf-email">email</label>
+                            <input type="email" id="cf-email" name="email" class="form-input" placeholder="your@email.com" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cf-subject">subject</label>
+                        <input type="text" id="cf-subject" name="subject" class="form-input" placeholder="Project / Collaboration / Freelance" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cf-message">message</label>
+                        <textarea id="cf-message" name="message" class="form-input" rows="6" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                    <button type="submit" class="btn-primary send-btn">
+                        <i class="fa fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3><span class="bracket">&lt;</span><span class="logo-name">Ashish</span><span
+                        class="bracket">/&gt;</span></h3>
+                <p>Building modern, responsive, high-performance web apps — one line at a time.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>NAVIGATE</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>SOCIALS</h4>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li><a href="mailto:jamesashish332@gmail.com">jamesashish332@gmail.com</a></li>
+                    <li><a href="tel:+918875566521">+91 8875566521</a></li>
+                    <li><a href="#contact">India 🇮🇳</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span><span class="co">// </span>© 2026 Ashish — All Rights Reserved</span>
+            <span>Built with ❤️ & ☕ in India</span>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
