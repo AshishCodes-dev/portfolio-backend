@@ -663,11 +663,18 @@ nav::after {
 }
 
 .code-body {
-    padding: 18px 22px;
-    font-family: var(--font-code);
-    font-size: 0.79rem;
-    line-height: 2;
-    overflow-x: auto;
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding: 24px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  background: var(--navy);
+  color: var(--cyan);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .code-line {
