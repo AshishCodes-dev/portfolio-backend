@@ -1,31 +1,14 @@
-/* ============================================================
-   ASHISH PORTFOLIO — script.js (Professional Version)
-   Optimized: Cursor | Matrix | Typed | Scroll Effects
-   Skill Bars | Counters | Hamburger | API Integration
-   ============================================================ */
-
 'use strict';
 
-// ============================================================
-// CONFIGURATION
-// ============================================================
 const CONFIG = {
-    // Uses localhost only when the site itself is running locally.
-    // TODO: replace 'your-api-domain.com' with your deployed backend's real domain.
-    API_URL: (['localhost', '127.0.0.1'].includes(window.location.hostname))
-        ? 'http://localhost:5000/api'
-        : 'https://portfolio-backend-l17o.onrender.com/api',
+    API_URL: 'https://portfolio-backend-l17o.onrender.com/api',
     ANIMATIONS: {
         SCROLL_OFFSET: 80,
         REVEAL_DELAY: 90,
         CLICK_BURST_COUNT: 6
-    },
-    PREFERS_REDUCED_MOTION: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    }
 };
 
-// ============================================================
-// 1. TYPED.JS — Hero typing animation
-// ============================================================
 if (document.getElementById('typed-element')) {
     new Typed('#typed-element', {
         strings: [
@@ -46,11 +29,7 @@ if (document.getElementById('typed-element')) {
     });
 }
 
-// ============================================================
-// 2. CUSTOM CURSOR — dot + trailing ring
-// ============================================================
 (function initCursor() {
-    if (CONFIG.PREFERS_REDUCED_MOTION) return;
     const cursor = document.getElementById('cursor');
     const trail = document.getElementById('cursor-trail');
     if (!cursor || !trail) return;
@@ -78,7 +57,6 @@ if (document.getElementById('typed-element')) {
         isVisible = false;
     });
 
-    // Smooth trail animation
     function animateTrail() {
         tx += (mx - tx) * 0.12;
         ty += (my - ty) * 0.12;
@@ -88,8 +66,7 @@ if (document.getElementById('typed-element')) {
     }
     animateTrail();
 
-    // Cursor scale on hover
-    const hoverElements = document.querySelectorAll('a, button, .skill-chip, .project-card, .stat-box');
+    const hoverElements = document.querySelectorAll('a, button, .skill-row, .project-card, .stat-box, .exp-item');
     hoverElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursor.style.transform = 'scale(2.5)';
@@ -101,7 +78,6 @@ if (document.getElementById('typed-element')) {
         });
     });
 
-    // Click burst effect
     document.addEventListener('click', (e) => {
         createClickBurst(e.clientX, e.clientY);
     });
@@ -139,11 +115,7 @@ function createClickBurst(x, y) {
     }
 }
 
-// ============================================================
-// 3. MATRIX RAIN — Purple/cyan characters
-// ============================================================
 (function initMatrix() {
-    if (CONFIG.PREFERS_REDUCED_MOTION) return;
     const canvas = document.getElementById('matrix-canvas');
     if (!canvas) return;
 
@@ -185,20 +157,9 @@ function createClickBurst(x, y) {
         }
     }
 
-    let matrixInterval = setInterval(draw, 50);
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            clearInterval(matrixInterval);
-        } else {
-            matrixInterval = setInterval(draw, 50);
-        }
-    });
+    setInterval(draw, 50);
 })();
 
-// ============================================================
-// 4. SCROLL REVEAL — Intersection Observer
-// ============================================================
 (function initReveal() {
     const items = document.querySelectorAll('.reveal');
     if (items.length === 0) return;
@@ -220,9 +181,25 @@ function createClickBurst(x, y) {
     items.forEach(el => observer.observe(el));
 })();
 
-// ============================================================
-// 6. COUNTER ANIMATION — Stats count up
-// ============================================================
+(function initSkillBars() {
+    const skillFills = document.querySelectorAll('.skill-fill');
+    if (skillFills.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const width = entry.target.getAttribute('data-width');
+                setTimeout(() => {
+                    entry.target.style.width = width + '%';
+                }, 300);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    skillFills.forEach(el => observer.observe(el));
+})();
+
 (function initCounters() {
     const counterElements = document.querySelectorAll('.stat-num[data-target]');
     if (counterElements.length === 0) return;
@@ -249,9 +226,6 @@ function createClickBurst(x, y) {
     counterElements.forEach(el => observer.observe(el));
 })();
 
-// ============================================================
-// 7. HAMBURGER MENU
-// ============================================================
 (function initHamburger() {
     const hamburgerBtn = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -263,7 +237,6 @@ function createClickBurst(x, y) {
         hamburgerBtn.setAttribute('aria-expanded', navLinks.classList.contains('open'));
     });
 
-    // Close menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('open');
@@ -272,7 +245,6 @@ function createClickBurst(x, y) {
         });
     });
 
-    // Close on outside click
     document.addEventListener('click', (e) => {
         if (!hamburgerBtn.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove('open');
@@ -281,9 +253,6 @@ function createClickBurst(x, y) {
     });
 })();
 
-// ============================================================
-// 8. ACTIVE NAV ON SCROLL (Debounced)
-// ============================================================
 (function initActiveNav() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links li a');
@@ -312,9 +281,6 @@ function createClickBurst(x, y) {
     }, { passive: true });
 })();
 
-// ============================================================
-// 9. RIPPLE EFFECT — Buttons
-// ============================================================
 (function initRipple() {
     const buttons = document.querySelectorAll('.btn-primary, .btn-outline');
     if (buttons.length === 0) return;
@@ -353,11 +319,8 @@ function createClickBurst(x, y) {
     });
 })();
 
-// ============================================================
-// 10. CARD TILT EFFECT — Project cards (desktop only)
-// ============================================================
 (function initTilt() {
-    if (window.innerWidth < 768 || CONFIG.PREFERS_REDUCED_MOTION) return;
+    if (window.innerWidth < 768) return;
 
     const projectCards = document.querySelectorAll('.project-card');
     if (projectCards.length === 0) return;
@@ -383,9 +346,29 @@ function createClickBurst(x, y) {
     });
 })();
 
-// ============================================================
-// 11. SMOOTH SCROLL NAV
-// ============================================================
+(function initSkillRowHover() {
+    const skillRows = document.querySelectorAll('.skill-row');
+    if (skillRows.length === 0) return;
+
+    skillRows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+            const bar = row.querySelector('.skill-fill');
+            if (bar) {
+                bar.style.boxShadow = '0 0 12px rgba(0, 212, 255, 0.6)';
+                bar.style.filter = 'brightness(1.2)';
+            }
+        });
+
+        row.addEventListener('mouseleave', () => {
+            const bar = row.querySelector('.skill-fill');
+            if (bar) {
+                bar.style.boxShadow = 'none';
+                bar.style.filter = 'brightness(1)';
+            }
+        });
+    });
+})();
+
 (function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
@@ -401,9 +384,6 @@ function createClickBurst(x, y) {
     });
 })();
 
-// ============================================================
-// 13. SCROLL PROGRESS BAR
-// ============================================================
 (function initScrollProgress() {
     const progressBar = document.createElement('div');
     progressBar.style.cssText = `
@@ -426,9 +406,6 @@ function createClickBurst(x, y) {
     }, { passive: true });
 })();
 
-// ============================================================
-// 14. AUTO UPDATE FOOTER YEAR
-// ============================================================
 (function updateYear() {
     const currentYear = new Date().getFullYear();
     const footerSpans = document.querySelectorAll('.footer-bottom span');
@@ -440,9 +417,6 @@ function createClickBurst(x, y) {
     });
 })();
 
-// ============================================================
-// 15. PAGE LOAD FADE-IN ANIMATION
-// ============================================================
 (function initPageLoad() {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.6s ease';
@@ -452,33 +426,20 @@ function createClickBurst(x, y) {
     });
 })();
 
-// ============================================================
-// 16. CONTACT FORM API INTEGRATION
-// ============================================================
 (function initContactForm() {
-    const form = document.getElementById('contactForm');
     const sendBtn = document.querySelector('.send-btn');
-    const statusEl = document.getElementById('formStatus');
-    if (!form || !sendBtn) return;
+    if (!sendBtn) return;
 
-    function setStatus(message, type) {
-        if (!statusEl) return;
-        statusEl.textContent = message;
-        statusEl.classList.remove('success', 'error');
-        if (type) statusEl.classList.add(type);
-    }
-
-    form.addEventListener('submit', async (e) => {
+    sendBtn.addEventListener('click', async (e) => {
         e.preventDefault();
 
-        const nameInput = document.getElementById('cf-name');
-        const emailInput = document.getElementById('cf-email');
-        const subjectInput = document.getElementById('cf-subject');
-        const messageInput = document.getElementById('cf-message');
+        const nameInput = document.querySelector('input[placeholder="Your Name"]');
+        const emailInput = document.querySelector('input[placeholder="your@email.com"]');
+        const subjectInput = document.querySelector('input[placeholder="Project / Collaboration / Freelance"]');
+        const messageInput = document.querySelector('textarea[placeholder="Tell me about your project..."]');
 
-        // Validate inputs
         if (!nameInput.value.trim() || !emailInput.value.trim() || !subjectInput.value.trim() || !messageInput.value.trim()) {
-            setStatus('Please fill in all fields.', 'error');
+            alert('Please fill all fields');
             return;
         }
 
@@ -490,7 +451,7 @@ function createClickBurst(x, y) {
         };
 
         try {
-            setStatus('Sending...', null);
+            sendBtn.textContent = 'Sending...';
             sendBtn.disabled = true;
 
             const response = await fetch(`${CONFIG.API_URL}/contact/submit`, {
@@ -504,34 +465,35 @@ function createClickBurst(x, y) {
             const result = await response.json();
 
             if (response.ok) {
-                setStatus('Message sent successfully! We will get back to you soon.', 'success');
-                form.reset();
-                sendBtn.disabled = false;
+                alert('Message sent successfully! We will get back to you soon.');
+
+                nameInput.value = '';
+                emailInput.value = '';
+                subjectInput.value = '';
+                messageInput.value = '';
+
+                sendBtn.textContent = 'Message Sent!';
+                setTimeout(() => {
+                    sendBtn.textContent = 'Send Message';
+                    sendBtn.disabled = false;
+                }, 2000);
             } else {
                 throw new Error(result.error || 'Failed to send message');
             }
         } catch (error) {
-            setStatus('Error: ' + error.message, 'error');
+            alert('Error: ' + error.message);
+            sendBtn.textContent = 'Send Message';
             sendBtn.disabled = false;
         }
     });
 })();
 
-// ============================================================
-// 17. PROJECTS API INTEGRATION
-// ============================================================
 function displayProjects(projects) {
     const container = document.getElementById('projectsContainer');
     if (!container) return;
 
     if (projects.length === 0) {
-        container.innerHTML = `
-    <div class="project-card project-placeholder">
-      <div class="placeholder-icon"><i class="fa fa-code"></i></div>
-      <h3 class="project-title">New Project</h3>
-      <p class="project-desc">Coming soon — currently in the works.</p>
-    </div>
-  `;
+        container.innerHTML = '<p style="text-align: center; color: var(--grey); grid-column: 1 / -1;">No projects yet. Coming soon...</p>';
         return;
     }
 
@@ -560,7 +522,6 @@ function displayProjects(projects) {
 
     container.innerHTML = projectsHTML;
 
-    // Re-initialize reveal for dynamically added elements
     const newItems = container.querySelectorAll('.reveal:not(.visible)');
     if (newItems.length > 0) {
         const observer = new IntersectionObserver((entries) => {
@@ -593,7 +554,6 @@ async function fetchProjects() {
     }
 }
 
-// Helper function to escape HTML
 function escapeHtml(text) {
     const map = {
         '&': '&amp;',
@@ -605,7 +565,6 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
-// Load projects on page load
 window.addEventListener('load', () => {
     fetchProjects();
 });
