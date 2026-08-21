@@ -2,10 +2,10 @@
   "name": "portfolio-backend",
   "version": "1.0.0",
   "description": "Portfolio backend API",
-  "main": "server.js",
+  "main": "Backend/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node Backend/server.js",
+    "dev": "node Backend/server.js"
   },
   "keywords": [],
   "author": "",
