@@ -1,5 +1,6 @@
-.env
 node_modules/
-Fontend/Backend/.env
-Fontend/Backend/node_modules/
-Fontend/Backend_old/
+.env
+.DS_Store
+*.log
+.vscode/
+Backend/node_modules/

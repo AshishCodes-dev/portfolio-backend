@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 const connectDB = require('./Config/db');
 
@@ -13,21 +14,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static files from Fontend folder
+app.use(express.static(path.join(__dirname, '../Fontend')));
+
 // =====================
 // DATABASE CONNECTION
 // =====================
 connectDB();
 
 // =====================
-// ROUTES
+// API ROUTES
 // =====================
 const contactRoutes = require('./Router/contact');
 const projectRoutes = require('./Router/projects');
 
-// Contact routes
 app.use('/api/contact', contactRoutes);
-
-// Project routes
 app.use('/api/projects', projectRoutes);
 
 // =====================
@@ -41,13 +42,10 @@ app.get('/api/test', (req, res) => {
 });
 
 // =====================
-// 404 HANDLER
+// SERVE FRONTEND - All other routes
 // =====================
 app.use((req, res) => {
-  res.status(404).json({ 
-    error: 'Route नहीं मिला',
-    message: 'यह endpoint exist नहीं करता'
-  });
+  res.sendFile(path.join(__dirname, '../Fontend/index.html'));
 });
 
 // =====================
@@ -56,5 +54,6 @@ app.use((req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📝 Test करो: http://localhost:${PORT}/api/test`);
+  console.log(`🌐 Website: http://localhost:${PORT}`);
+  console.log(`🔌 API Test: http://localhost:${PORT}/api/test`);
 });
