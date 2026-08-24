@@ -4,7 +4,7 @@ const CONFIG = {
     // Local host par localhost:5000 use hoga. Live deploy par Render URL dalo.
     API_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
         ? 'http://localhost:5000/api'
-        : 'https://YOUR-BACKEND-NAME.onrender.com/api', // <-- Render par backend deploy karke yahan apna URL dalo
+        : 'https://portfolio-backend.onrender.com/api',
     ANIMATIONS: {
         SCROLL_OFFSET: 80,
         REVEAL_DELAY: 90,
