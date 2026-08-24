@@ -25,7 +25,7 @@ connectDB();
 // =====================
 // API ROUTES
 // =====================
-const contactRoutes = require('./Router/contact');
+const contactRoutes = require('./Router/contact'); // Router/contact.js ko load kar raha hai
 const projectRoutes = require('./Router/projects');
 
 app.use('/api/contact', contactRoutes);
