@@ -2,7 +2,9 @@
   "name": "portfolio-backend",
   "version": "1.0.0",
   "description": "Portfolio backend API",
-  "main": "Backend/server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node Backend/server.js",
     "dev": "node Backend/server.js"
