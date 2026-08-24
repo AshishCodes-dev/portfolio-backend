@@ -1,7 +1,10 @@
 'use strict';
 
 const CONFIG = {
-    API_URL: 'https://portfolio-backend-l17o.onrender.com/api',
+    // Local host par localhost:5000 use karega, live par Vercel URL
+    API_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? 'http://localhost:5000/api'
+        : 'https://portfolio-three-mu-atx8a7vsl8.vercel.app/api',
     ANIMATIONS: {
         SCROLL_OFFSET: 80,
         REVEAL_DELAY: 90,
