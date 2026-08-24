@@ -1,10 +1,9 @@
 'use strict';
-
 const CONFIG = {
-    // Local host par localhost:5000 use hoga. Live deploy par Render URL dalo.
+    // Local testing par localhost, Vercel live site par Render URL chalega
     API_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
         ? 'http://localhost:5000/api'
-        : 'https://portfolio-backend.onrender.com/api',
+        : 'https://portfolio-backend-l17o.onrender.com/api',
     ANIMATIONS: {
         SCROLL_OFFSET: 80,
         REVEAL_DELAY: 90,
