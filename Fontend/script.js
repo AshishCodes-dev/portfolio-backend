@@ -1,6 +1,6 @@
 'use strict';
+
 const CONFIG = {
-    // Local testing par localhost, Vercel live site par Render URL chalega
     API_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
         ? 'http://localhost:5000/api'
         : 'https://portfolio-backend-l17o.onrender.com/api',
@@ -445,28 +445,29 @@ function createClickBurst(x, y) {
             return;
         }
 
-        const contactData = {
-            name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            subject: subjectInput.value.trim(),
-            message: messageInput.value.trim()
-        };
-
         try {
             sendBtn.textContent = 'Sending...';
             sendBtn.disabled = true;
 
-            const response = await fetch(`${CONFIG.API_URL}/contact/submit`, {
+            // Direct Web3Forms API Call
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(contactData)
+                body: JSON.stringify({
+                    access_key: 'e366a4e8-fcb1-45ab-b012-d548fa4b317e',
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    subject: subjectInput.value.trim(),
+                    message: messageInput.value.trim()
+                })
             });
 
             const result = await response.json();
 
-            if (response.ok) {
+            if (result.success) {
                 alert('Message sent successfully! We will get back to you soon.');
 
                 nameInput.value = '';
@@ -480,7 +481,7 @@ function createClickBurst(x, y) {
                     sendBtn.disabled = false;
                 }, 2000);
             } else {
-                throw new Error(result.error || 'Failed to send message');
+                throw new Error(result.message || 'Failed to send message');
             }
         } catch (error) {
             alert('Error: ' + error.message);
