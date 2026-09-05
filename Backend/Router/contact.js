@@ -1,14 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Contact = require('../Models/contact');
-const SibApiV3Sdk = require('@getbrevo/brevo');
+const { BrevoClient } = require('@getbrevo/brevo');
 
-// Setup Brevo API client
-let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-apiInstance.setApiKey(
-  SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
-  process.env.BREVO_API_KEY
-);
+const brevo = new BrevoClient({ apiKey: process.env.BREVO_API_KEY });
 
 router.post('/submit', async (req, res) => {
   try {
@@ -31,24 +26,23 @@ router.post('/submit', async (req, res) => {
     if (process.env.BREVO_API_KEY && process.env.EMAIL_USER) {
       console.log('📧 Sending email notification via Brevo...');
 
-      const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-      sendSmtpEmail.subject = `New Portfolio Message: ${subject}`;
-      sendSmtpEmail.htmlContent = `
-        <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2>New Contact Message</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Subject:</strong> ${subject}</p>
-          <p><strong>Message:</strong> ${message}</p>
-        </div>
-      `;
-      // Sender MUST be a verified sender in your Brevo account
-      sendSmtpEmail.sender = { name: 'Portfolio Contact Form', email: process.env.EMAIL_USER };
-      sendSmtpEmail.to = [{ email: process.env.EMAIL_USER }];
-      sendSmtpEmail.replyTo = { email: email, name: name };
-
       try {
-        await apiInstance.sendTransacEmail(sendSmtpEmail);
+        await brevo.transactionalEmails.sendTransacEmail({
+          subject: `New Portfolio Message: ${subject}`,
+          htmlContent: `
+            <div style="font-family: Arial, sans-serif; padding: 20px;">
+              <h2>New Contact Message</h2>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Subject:</strong> ${subject}</p>
+              <p><strong>Message:</strong> ${message}</p>
+            </div>
+          `,
+          // Sender MUST be a verified sender in your Brevo account
+          sender: { name: 'Portfolio Contact Form', email: process.env.EMAIL_USER },
+          to: [{ email: process.env.EMAIL_USER }],
+          replyTo: { email: email, name: name }
+        });
         console.log('✅ EMAIL SENT SUCCESSFULLY VIA BREVO');
       } catch (mailErr) {
         console.log('⚠️ Brevo email failed:', mailErr.message);
