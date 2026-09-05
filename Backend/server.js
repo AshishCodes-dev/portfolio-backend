@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 const connectDB = require('./Config/db');
 
 const app = express();
@@ -14,8 +14,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from Fontend folder
-app.use(express.static(path.join(__dirname, '../Fontend')));
+// Serve static files (React build if available, otherwise legacy Fontend)
+const fs = require('fs');
+const reactDistPath = path.join(__dirname, '../frontend/dist');
+const legacyPath = path.join(__dirname, '../Fontend');
+
+if (fs.existsSync(reactDistPath)) {
+  app.use(express.static(reactDistPath));
+} else {
+  app.use(express.static(legacyPath));
+}
 
 // =====================
 // DATABASE CONNECTION
@@ -45,7 +53,11 @@ app.get('/api/test', (req, res) => {
 // SERVE FRONTEND - All other routes
 // =====================
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, '../Fontend/index.html'));
+  if (fs.existsSync(path.join(reactDistPath, 'index.html'))) {
+    res.sendFile(path.join(reactDistPath, 'index.html'));
+  } else {
+    res.sendFile(path.join(legacyPath, 'index.html'));
+  }
 });
 
 // =====================

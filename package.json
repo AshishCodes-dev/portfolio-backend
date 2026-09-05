@@ -7,7 +7,9 @@
   },
   "scripts": {
     "start": "node Backend/server.js",
-    "dev": "node Backend/server.js"
+    "server": "node Backend/server.js",
+    "client": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build"
   },
   "keywords": [],
   "author": "",
