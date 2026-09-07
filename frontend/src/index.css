@@ -1594,6 +1594,42 @@ footer {
     transform: translateY(-8px);
 }
 
+.project-image-wrap {
+    position: relative;
+    height: 170px;
+    margin: -28px -28px 20px -28px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(129, 52, 202, 0.25), rgba(0, 212, 255, 0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.project-card:hover .project-image-wrap img {
+    transform: scale(1.08);
+}
+
+.project-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(10, 10, 42, 0.9) 100%);
+    pointer-events: none;
+}
+
+.project-image-wrap .project-icon-fallback {
+    font-size: 2.6rem;
+    color: rgba(129, 52, 202, 0.45);
+    z-index: 1;
+}
+
 .project-header {
     display: flex;
     justify-content: space-between;

@@ -8,7 +8,8 @@ const DEFAULT_PROJECTS = [
     description: 'AI-powered music streaming platform that plays any song via YouTube IFrame Player API, with an AI DJ for mood-based playlists, smart recommendations, and an installable offline-capable PWA.',
     technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
     liveLink: 'https://sonix-music-app.vercel.app',
-    githubLink: 'https://github.com/AshishCodes-dev/sonix-music-app'
+    githubLink: 'https://github.com/AshishCodes-dev/sonix-music-app',
+    image: '/images/soniq.png'
   },
   {
     _id: '2',
@@ -17,7 +18,8 @@ const DEFAULT_PROJECTS = [
     description: 'MERN-based ride-booking platform with rider and captain flows, JWT authentication, live route mapping via OSRM, dynamic fare estimation, and a complete ride lifecycle.',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Leaflet'],
     liveLink: 'https://frontend-alpha-snowy-34.vercel.app',
-    githubLink: 'https://github.com/AshishCodes-dev/uber-clone-fullstack'
+    githubLink: 'https://github.com/AshishCodes-dev/uber-clone-fullstack',
+    image: '/images/uber-clone.png'
   }
 ];
 
@@ -87,6 +89,15 @@ export default function Projects() {
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
+                <div className="project-image-wrap">
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} loading="lazy" />
+                  ) : (
+                    <i className="fa-solid fa-code project-icon-fallback"></i>
+                  )}
+                  <div className="project-image-overlay"></div>
+                </div>
+
                 <div className="project-header">
                   <h3 className="project-title">{project.title}</h3>
                   {project.category && <span className="project-badge">{project.category}</span>}
