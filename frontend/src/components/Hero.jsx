@@ -51,7 +51,7 @@ export default function Hero() {
             <i className="fa fa-download"></i> Download CV
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/AshishCodes-dev"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"
@@ -60,10 +60,10 @@ export default function Hero() {
           </a>
         </div>
         <div className="social-row">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a href="https://github.com/AshishCodes-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i className="fa-brands fa-github"></i>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="www.linkedin.com/in/ashish-singh-28a491389" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i className="fa-brands fa-linkedin"></i>
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
