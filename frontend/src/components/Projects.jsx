@@ -3,39 +3,21 @@ import React, { useState, useEffect } from 'react';
 const DEFAULT_PROJECTS = [
   {
     _id: '1',
-    title: 'Password Manager',
-    category: 'Full Stack App',
-    description: 'Secure credential storage with AES encryption, master password authentication, and modern React dashboard.',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'CryptoJS'],
-    liveLink: 'https://github.com/yourusername',
-    githubLink: 'https://github.com/yourusername'
+    title: 'SONIQ — AI-Powered Music Streaming Platform',
+    category: 'Full Stack',
+    description: 'AI-powered music streaming platform that plays any song via YouTube IFrame Player API, with an AI DJ for mood-based playlists, smart recommendations, and an installable offline-capable PWA.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
+    liveLink: 'https://sonix-music-app.vercel.app',
+    githubLink: 'https://github.com/AshishCodes-dev/sonix-music-app'
   },
   {
     _id: '2',
-    title: 'JARVIS Voice Assistant',
-    category: 'AI & Automation',
-    description: 'AI-powered desktop assistant for automation, speech recognition, and system level task handling in Python.',
-    technologies: ['Python', 'SpeechRecognition', 'Pyttsx3', 'Automation'],
-    liveLink: '',
-    githubLink: 'https://github.com/yourusername'
-  },
-  {
-    _id: '3',
-    title: 'Twitter / X Clone',
-    category: 'MERN Stack',
-    description: 'Full-featured social application with real-time posts, user profiles, image uploads, and like/comment interactions.',
-    technologies: ['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB'],
-    liveLink: 'https://github.com/yourusername',
-    githubLink: 'https://github.com/yourusername'
-  },
-  {
-    _id: '4',
-    title: 'Uber Clone App',
-    category: 'Full Stack Mobile/Web',
-    description: 'Ride booking simulation with live geolocation tracking, driver dispatch, and route mapping.',
-    technologies: ['React', 'Node.js', 'Socket.io', 'Google Maps API'],
-    liveLink: '',
-    githubLink: 'https://github.com/yourusername'
+    title: 'Uber Clone — Ride Booking Application',
+    category: 'Full Stack',
+    description: 'MERN-based ride-booking platform with rider and captain flows, JWT authentication, live route mapping via OSRM, dynamic fare estimation, and a complete ride lifecycle.',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Leaflet'],
+    liveLink: 'https://frontend-alpha-snowy-34.vercel.app',
+    githubLink: 'https://github.com/AshishCodes-dev/uber-clone-fullstack'
   }
 ];
 
