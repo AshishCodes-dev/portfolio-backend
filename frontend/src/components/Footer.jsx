@@ -14,8 +14,8 @@ export default function Footer() {
           </h3>
           <p>Building modern, responsive, high-performance web apps — one line at a time.</p>
           <div className="footer-social">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/AshishCodes-dev" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ashishcodes-dev" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
           </div>
         </div>
@@ -32,8 +32,8 @@ export default function Footer() {
         <div className="footer-col">
           <h4>SOCIALS</h4>
           <ul>
-            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/AshishCodes-dev" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/ashishcodes-dev" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
           </ul>
@@ -41,7 +41,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>CONTACT</h4>
           <ul>
-            <li><a href="mailto:jamesashish332@gmail.com">jamesashish332@gmail.com</a></li>
+            <li><a href="mailto:ashish.codes.devv@gmail.com">ashish.codes.devv@gmail.com</a></li>
             <li><a href="tel:+918875566521">+91 8875566521</a></li>
             <li><a href="#contact">India 🇮🇳</a></li>
           </ul>

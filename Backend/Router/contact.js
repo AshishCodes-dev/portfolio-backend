@@ -40,7 +40,7 @@ router.post('/submit', async (req, res) => {
           `,
           // Sender MUST be a verified sender in your Brevo account
           sender: { name: 'Portfolio Contact Form', email: process.env.EMAIL_USER },
-          to: [{ email: process.env.EMAIL_USER }],
+          to: [{ email: process.env.RECEIVER_EMAIL || 'ashish.codes.devv@gmail.com' }],
           replyTo: { email: email, name: name }
         });
         console.log('✅ EMAIL SENT SUCCESSFULLY VIA BREVO');

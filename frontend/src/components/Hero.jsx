@@ -63,7 +63,7 @@ export default function Hero() {
           <a href="https://github.com/AshishCodes-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i className="fa-brands fa-github"></i>
           </a>
-          <a href="www.linkedin.com/in/ashish-singh-28a491389" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/ashishcodes-dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i className="fa-brands fa-linkedin"></i>
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

@@ -81,8 +81,8 @@ export default function Contact() {
               <div className="contact-icon"><i className="fa fa-envelope"></i></div>
               <div>
                 <span className="detail-label">EMAIL</span>
-                <a className="detail-value" href="mailto:jamesashish332@gmail.com">
-                  jamesashish332@gmail.com
+                <a className="detail-value" href="mailto:ashish.codes.devv@gmail.com">
+                  ashish.codes.devv@gmail.com
                 </a>
               </div>
             </div>
