@@ -70,19 +70,19 @@ export default function Projects() {
   }, []);
 
   const handleMouseMove = (e) => {
-    if (window.innerWidth < 768) return;
+    if (window.innerWidth < 1024) return;
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `translateY(-10px) rotateX(${(-y * 8).toFixed(1)}deg) rotateY(${(x * 8).toFixed(1)}deg)`;
+    card.style.transform = `translateY(-6px) rotateX(${(-y * 5).toFixed(1)}deg) rotateY(${(x * 5).toFixed(1)}deg)`;
     card.style.transition = 'transform 0.1s ease';
   };
 
   const handleMouseLeave = (e) => {
     const card = e.currentTarget;
     card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
-    card.style.transition = 'transform 0.4s ease';
+    card.style.transition = 'transform 0.35s ease';
   };
 
   return (
@@ -109,14 +109,20 @@ export default function Projects() {
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="project-image-wrap">
+                <a
+                  href={project.liveLink || project.githubLink || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-image-wrap"
+                  aria-label={`View ${project.title}`}
+                >
                   {project.image ? (
                     <img src={project.image} alt={project.title} loading="lazy" />
                   ) : (
                     <i className="fa-solid fa-code project-icon-fallback"></i>
                   )}
                   <div className="project-image-overlay"></div>
-                </div>
+                </a>
 
                 <div className="project-header">
                   <h3 className="project-title">{project.title}</h3>
