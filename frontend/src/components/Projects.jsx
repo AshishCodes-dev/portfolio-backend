@@ -3,6 +3,16 @@ import React, { useState, useEffect } from 'react';
 const DEFAULT_PROJECTS = [
   {
     _id: '1',
+    title: 'VELORA — Luxury Dining & Restaurant Operations Platform',
+    category: 'Full Stack',
+    description: 'Atmospheric luxury restaurant platform with server-authoritative dish customization, atomic conflict-checked table reservations, real-time 6-stage order tracking, coupon engine, and executive admin analytics console.',
+    technologies: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Node.js', 'Express', 'MongoDB', 'Motion'],
+    liveLink: 'https://velora-dining-platform.vercel.app',
+    githubLink: 'https://github.com/AshishCodes-dev/velora-dining-platform',
+    image: '/images/velora.png'
+  },
+  {
+    _id: '2',
     title: 'InterviewIQ — AI Mock Interview & Career Prep Platform',
     category: 'Full Stack',
     description: 'Enterprise-grade AI mock interview platform featuring realistic AI interviewer avatars, voice-to-text audio capture, live timer simulation, intelligent automated grading, and exportable PDF report cards.',
@@ -12,7 +22,7 @@ const DEFAULT_PROJECTS = [
     image: '/images/interviewiq.png'
   },
   {
-    _id: '2',
+    _id: '3',
     title: 'SONIQ — AI-Powered Music Streaming Platform',
     category: 'Full Stack',
     description: 'AI-powered music streaming platform that plays any song via YouTube IFrame Player API, with an AI DJ for mood-based playlists, smart recommendations, and an installable offline-capable PWA.',
@@ -22,7 +32,7 @@ const DEFAULT_PROJECTS = [
     image: '/images/soniq.png'
   },
   {
-    _id: '3',
+    _id: '4',
     title: 'Uber Clone — Ride Booking Application',
     category: 'Full Stack',
     description: 'MERN-based ride-booking platform with rider and captain flows, JWT authentication, live route mapping via OSRM, dynamic fare estimation, and a complete ride lifecycle.',
