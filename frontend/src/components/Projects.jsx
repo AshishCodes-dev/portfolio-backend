@@ -6,7 +6,7 @@ const DEFAULT_PROJECTS = [
     title: 'NEXORA AI — Autonomous Multi-Agent Mission OS',
     category: 'Full Stack',
     description: 'Autonomous multi-agent orchestration operating system featuring deterministic task decomposition, headless Playwright web research, strict SSRF defenses, critic grounding invariants, and real-time execution telemetry.',
-    technologies: ['React 19', 'Motion', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Playwright', 'Gemini AI'],
+    technologies: ['React 19', 'Motion', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Docker', 'Playwright', 'Gemini AI'],
     liveLink: 'https://nexora-ai-xi-two.vercel.app',
     githubLink: 'https://github.com/AshishCodes-dev/NEXORA-AI',
     image: '/images/nexora.png'
