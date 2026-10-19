@@ -3,6 +3,16 @@ import React, { useState, useEffect } from 'react';
 const DEFAULT_PROJECTS = [
   {
     _id: '1',
+    title: 'HALCYON — 3D Electric Hypercar Experience',
+    category: 'Full Stack',
+    description: 'Award-level concept hypercar launch experience featuring real-time Three.js 3D staging, scrub-driven GSAP ScrollTrigger timelines, Lenis inertia scrolling, reactive accent lighting, and Google OAuth allocation reservation demo.',
+    technologies: ['React 19', 'Three.js', 'React Three Fiber', 'GSAP', 'ScrollTrigger', 'Lenis', 'Motion', 'Vite', 'Firebase'],
+    liveLink: 'https://halcyon-hypercar-theta.vercel.app',
+    githubLink: 'https://github.com/AshishCodes-dev/halcyon-hypercar',
+    image: '/images/halcyon.png'
+  },
+  {
+    _id: '2',
     title: 'NEXORA AI — Autonomous Multi-Agent Mission OS',
     category: 'Full Stack',
     description: 'Autonomous multi-agent orchestration operating system featuring deterministic task decomposition, headless Playwright web research, strict SSRF defenses, critic grounding invariants, and real-time execution telemetry.',
@@ -12,7 +22,7 @@ const DEFAULT_PROJECTS = [
     image: '/images/nexora.png'
   },
   {
-    _id: '2',
+    _id: '3',
     title: 'VELORA — Luxury Dining & Restaurant Operations Platform',
     category: 'Full Stack',
     description: 'Atmospheric luxury restaurant platform with server-authoritative dish customization, atomic conflict-checked table reservations, real-time 6-stage order tracking, coupon engine, and executive admin analytics console.',
@@ -22,7 +32,7 @@ const DEFAULT_PROJECTS = [
     image: '/images/velora.png'
   },
   {
-    _id: '3',
+    _id: '4',
     title: 'InterviewIQ — AI Mock Interview & Career Prep Platform',
     category: 'Full Stack',
     description: 'Enterprise-grade AI mock interview platform featuring realistic AI interviewer avatars, voice-to-text audio capture, live timer simulation, intelligent automated grading, and exportable PDF report cards.',
@@ -32,7 +42,7 @@ const DEFAULT_PROJECTS = [
     image: '/images/interviewiq.png'
   },
   {
-    _id: '4',
+    _id: '5',
     title: 'SONIQ — AI-Powered Music Streaming Platform',
     category: 'Full Stack',
     description: 'AI-powered music streaming platform that plays any song via YouTube IFrame Player API, with an AI DJ for mood-based playlists, smart recommendations, and an installable offline-capable PWA.',
@@ -42,7 +52,7 @@ const DEFAULT_PROJECTS = [
     image: '/images/soniq.png'
   },
   {
-    _id: '5',
+    _id: '6',
     title: 'Uber Clone — Ride Booking Application',
     category: 'Full Stack',
     description: 'MERN-based ride-booking platform with rider and captain flows, JWT authentication, live route mapping via OSRM, dynamic fare estimation, and a complete ride lifecycle.',
