@@ -57,7 +57,7 @@ const DEFAULT_PROJECTS = [
     category: 'Full Stack',
     description: 'MERN-based ride-booking platform with rider and captain flows, JWT authentication, live route mapping via OSRM, dynamic fare estimation, and a complete ride lifecycle.',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Leaflet'],
-    liveLink: 'https://frontend-alpha-snowy-34.vercel.app',
+    liveLink: 'https://ridepulse-ashish.vercel.app',
     githubLink: 'https://github.com/AshishCodes-dev/uber-clone-fullstack',
     image: '/images/uber-clone.png'
   }
